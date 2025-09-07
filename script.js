@@ -27,7 +27,6 @@ function formatCurrencyBBL(value) {
 
 //Capitura o evento submit do formulário para obter os valores
 form.onsubmit = (event) => {
-
   //Previne o comportamento padrão de recarregar a página.
   event.preventDefault();
 
@@ -40,6 +39,15 @@ form.onsubmit = (event) => {
     amount: amount.value,
     created_at: new Date(),
   };
-
-  console.log(newExpense);
+  //Chama a função que adiciona o item na lista
+  expenseAdd(newExpense);
 };
+
+function expenseAdd(newExpense) {
+  try {
+    //throw new Error("Erro de teste");
+  } catch (error) {
+    alert("Não foi possível atualizar a lista de despesas.");
+    console.log(error);
+  }
+}
