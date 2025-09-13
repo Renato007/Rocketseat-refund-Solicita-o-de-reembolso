@@ -58,22 +58,29 @@ function expenseAdd(newExpense) {
     expenseIcon.setAttribute("alt", newExpense.category_name);
 
     //Cria a info da despesa.
-    const expenseInfo = document.createElement("div")
-    expenseInfo.classList.add("expense-info")
+    const expenseInfo = document.createElement("div");
+    expenseInfo.classList.add("expense-info");
 
     //Criar o nome da despensa.
-    const expenseName = document.createElement("strong")
-    expenseName.textContent = newExpense.expense
+    const expenseName = document.createElement("strong");
+    expenseName.textContent = newExpense.expense;
 
     //Cria a categoria da despesa.
-    const expenseCategory = document.createElement("span")
-    expenseCategory.textContent = newExpense.category_name
+    const expenseCategory = document.createElement("span");
+    expenseCategory.textContent = newExpense.category_name;
 
     //Adiciona name e categoria na div das informações da despesa.
-    expenseInfo.append(expenseName, expenseCategory)
+    expenseInfo.append(expenseName, expenseCategory);
+
+     //Criar o valor da despensa.
+    const expenseAmount = document.createElement("span");
+    expenseAmount.classList.add("expense-amount");
+    expenseAmount.innerHTML = `<small>R$</small>${newExpense.amount
+      .toUpperCase()
+      .replace("R$", "")}`;
 
     //Adiciona as informações no item.
-    expenseItem.append(expenseIcon, expenseInfo);
+    expenseItem.append(expenseIcon, expenseInfo, expenseAmount);
 
     //Adicona o item na lista
     expenseList.append(expenseItem);

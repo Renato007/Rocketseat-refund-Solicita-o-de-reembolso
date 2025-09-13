@@ -37,7 +37,7 @@ Refund é um sistema de solitação de  reembolso.
 
 ## 💻 Pontos de aprendizagem
 * Quando digitar os valores, aceita apenas números e já exibi em formato de moeda - [aula](https://github.com/Renato007/Rocketseat-refund-Solicita-o-de-reembolso/commit/01265b37ab78d9e7845292d97beb8205a89c21ec)
-* Exibir um item na lista com seu respectivo icones e os dados inseridos no imput despesa
+* Exibir um item na lista com seu respectivo icones e os dados inseridos no imput despesa - [aula](https://github.com/Renato007/Rocketseat-refund-Solicita-o-de-reembolso/commit/40e3640c577ff189750322e924bba04f07d2f4a0)
 
 ## :memo: Licença
 
