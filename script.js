@@ -6,6 +6,7 @@ const category = document.getElementById("category");
 
 //Seleciona os elementos da lista
 const expenseList = document.querySelector("ul");
+const expenseQuantity = document.querySelector("aside header p span")
 
 //capitura o evento de input para formatar o valor
 amount.oninput = () => {
@@ -46,6 +47,7 @@ form.onsubmit = (event) => {
   expenseAdd(newExpense);
 };
 
+// Adicionar um novo item na lista.
 function expenseAdd(newExpense) {
   try {
     //Cria o elemento para adiconar o item(li) na lista (ul).
@@ -72,20 +74,44 @@ function expenseAdd(newExpense) {
     //Adiciona name e categoria na div das informações da despesa.
     expenseInfo.append(expenseName, expenseCategory);
 
-     //Criar o valor da despensa.
+    //Criar o valor da despensa.
     const expenseAmount = document.createElement("span");
     expenseAmount.classList.add("expense-amount");
     expenseAmount.innerHTML = `<small>R$</small>${newExpense.amount
       .toUpperCase()
       .replace("R$", "")}`;
 
+    //Criar o ícone de remover
+    const removeIcon = document.createElement("img");
+    removeIcon.classList.add("remove-icon");
+    removeIcon.setAttribute("src", "img/remove.svg");
+    removeIcon.setAttribute("alt", "remover");
+
     //Adiciona as informações no item.
-    expenseItem.append(expenseIcon, expenseInfo, expenseAmount);
+    expenseItem.append(expenseIcon, expenseInfo, expenseAmount, removeIcon);
 
     //Adicona o item na lista
     expenseList.append(expenseItem);
+
+    //Atualiza os totais
+    updateTotaLs();
+
   } catch (error) {
     alert("Não foi possível atualizar a lista de despesas.");
     console.log(error);
+  }
+}
+
+// Atualiza os totais.
+function updateTotaLs() {
+  try {
+    //Recupera todos os itens (li) da lista (ul)
+    const items = expenseList.children;
+    
+    //Atualizar a quantidade de intens da lista.
+    expenseQuantity.textContent =`${items.length} ${items.length > 1 ? "despesas" : "despesa"}`
+  } catch (error) {
+    console.log(error);
+    alert("Não foi possivel atualizar os totais.");
   }
 }
